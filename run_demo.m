@@ -42,3 +42,34 @@ imwrite(Idetailed, 'images/deblurred_detail_RL.jpg');
 
 
 disp('ALL CLEAR.')
+
+%%
+figure
+m=3;n=4;a=201;b=307;c=179;d=284;
+subplot(m,n,1)
+imshow(I(a:b,c:d),[]);title('Original Image');
+subplot(m,n,1+n*1)
+imshow(B(a:b,c:d),[]);title('Blurred Image');
+subplot(m,n,1+n*2)
+imshow(k,[]);title('true kernel');
+
+subplot(m,n,2)
+imshow(N(a:b,c:d),[]);title('Noised Image');
+subplot(m,n,2+n*1)
+imshow(Nd(a:b,c:d),[]);title('Denoised Image');
+subplot(m,n,2+n*2)
+imshow(K,[]);title('estimated kernel');
+
+subplot(m,n,3)
+imshow(Ireg(a:b,c:d),[]);title('deblurred reg');
+subplot(m,n,3+n*1) 
+imshow(Ilucy(a:b,c:d),[]);title('deblurred lucy');
+subplot(m,n,3+n*2)
+imshow(Ir(a:b,c:d),[]);title('deblurred residual RL');
+
+subplot(m,n,4) 
+imshow(Ig(a:b,c:d),[]);title('deblurred gain controlled RL');
+subplot(m,n,4+n*1)
+imshow(Idetailed(a:b,c:d),[]);title('deblurred detail RL');
+subplot(m,n,4+n*2)
+imshow(Id(a:b,c:d),[]);title('detail image');

@@ -3,11 +3,12 @@
 clear
 
 disp('loading...');
-I = im2double(imread('images/sculpture.jpg'));
+I = phantom('Modified Shepp-Logan',512);
+% I = im2double(imread('images/sculpture.jpg'));
 % I = im2double(imread('onion.png'));
 
 disp('generating blurred and noisy images...');
-[k, B, N] = generate_blurimg(I,5,63,0,0.0025);  % used for the example in report
+[k, B, N] = generate_blurimg(I,8,63,0,0.0025);  % used for the example in report
 % [k, B, N] = generate_blurimg(I,9,37,0,0.0025);
 
 disp('denoising noisy image...');

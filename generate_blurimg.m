@@ -28,8 +28,8 @@ if nargin < 5
     variance = 0.0025;
 end
 
-k = fspecial('motion', len, theta); % used for the example in report
-% k = fspecial('gaussian', [len len], 5);
+% k = fspecial('motion', len, theta); % used for the example in report
+k = fspecial('gaussian', [len len], 5);
 %  k = random_kernel(len, len);
 
 B = imfilter(I, k);
