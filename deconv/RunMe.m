@@ -49,10 +49,10 @@ Y_CNI = [anckerCNI(2)-normPCNI,anckerCNI(2)+normPCNI];
 IroiCNI = I(Y_CNI(1):Y_CNI(2),X_CNI(1):X_CNI(2));
 figure;imshow(IroiCNI,[]);title('ROI Image for CNI');
 
-CNI_o = funCTCNI(IroiCNI,pixelL,normLCNI,1)
+CNI_o = funCTCNI(IroiCNI,pixelL,normLCNI,2)
 
 %%
-[fx_o, mtf_o, v50o, v10o, ~] = funCTMTF(IroiMTF,pixelL,'original');
+[fx_o, mtf_o, v50o, v10o, ~] = funCTMTF(IroiMTF,pixelL,1);
 figure(100);plot(fx_o,mtf_o,'r.-');hold on;
 
 ai_o = funCTAI(param, v50o, CNI_o)
@@ -70,11 +70,11 @@ figure;imshow(Ib2,[])
 title('Deblurring with blind PSF(denoise)')
 
 Ib1_mtf = Ib1(Y_MTF(1):Y_MTF(2),X_MTF(1):X_MTF(2));
-[fx_b1, mtf_b1, v50b1, v10b1, ~] = funCTMTF(Ib1_mtf,pixelL);
+[fx_b1, mtf_b1, v50b1, v10b1, ~] = funCTMTF(Ib1_mtf,pixelL,1);
 figure(100);plot(fx_b1,mtf_b1,'g.-')
 
 Ib2__mtf = Ib2(Y_MTF(1):Y_MTF(2),X_MTF(1):X_MTF(2));
-[fx_b2, mf_b2, v50b2, v10b2, ~] = funCTMTF(Ib2__mtf,pixelL);
+[fx_b2, mf_b2, v50b2, v10b2, ~] = funCTMTF(Ib2__mtf,pixelL,1);
 figure(100);plot(fx_b2,mf_b2,'b.-')
 
 Ib1 = Ib1*(maxI-minI) + minI;
@@ -88,8 +88,8 @@ legend({'Original','Opt1b','Opt2b'})
 Ib1_cni = Ib1(Y_CNI(1):Y_CNI(2),X_CNI(1):X_CNI(2));
 Ib2_cni = Ib2(Y_CNI(1):Y_CNI(2),X_CNI(1):X_CNI(2));
 
-CNI_b1 = funCTCNI(Ib1_cni,pixelL,normLCNI,1)
-CNI_b2 = funCTCNI(Ib2_cni,pixelL,normLCNI,1)
+CNI_b1 = funCTCNI(Ib1_cni,pixelL,normLCNI,2)
+CNI_b2 = funCTCNI(Ib2_cni,pixelL,normLCNI,2)
 
 ai_b1 = funCTAI(param, v50b1, CNI_b1)
 ai_b2 = funCTAI(param, v50b2, CNI_b2)
