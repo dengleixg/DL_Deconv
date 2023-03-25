@@ -62,9 +62,9 @@ for theta = (theta - Htheta) : 0.01 : (theta + Htheta)
     % remove the baseline
     [fitresult, ~] = createFit(x, y);
     % dR = dR - mean(y);
-    if strcmp(version('-release'), '2021a')
+    try
         dR = dR - (fitresult.a.*dx + fitresult.b);
-    else
+    catch
         dR = dR - (fitresult.p1.*dx + fitresult.p2);
     end
     if plotFlag
