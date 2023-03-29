@@ -1,4 +1,4 @@
-function [fx_out, MTF_out, V50, V10, theta_out] = funCTMTF(I,pixelL,HVmode)
+function [V50, V10, data] = funCTMTF(I,pixelL,HVmode)
 
 plotFlag = 0;
 index = 1;
@@ -98,10 +98,23 @@ for theta = (theta - Htheta) : 0.01 : (theta + Htheta)
         maxMTF = MTF(round(end/2));
         fx_out = fx;
         MTF_out = MTF;
+        dx_out = dx;
+        xp_out = xp;
+        R_out = R;
+        dR_out = dR;
         %saveas(h,[pname,'.png']);
     end
 end
 
 V50 = interp1(MTF_out,fx_out,0.5,'pchip');
 V10 = interp1(MTF_out,fx_out,0.1,'pchip');
+
+data.dx = dx_out;
+data.xp = xp_out;
+data.R = R_out;
+data.dR = dR_out;
+data.fx = fx_out;
+data.MTF = MTF_out;
+data.theta = theta_out;
+
 end

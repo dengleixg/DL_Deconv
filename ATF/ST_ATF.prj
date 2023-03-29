@@ -1,22 +1,23 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="306191900" file="D:\repo\DL_Deconv\ATF\SY_AITool.prj" location="D:\repo\DL_Deconv\ATF" name="SY_AITool" target="target.mlapps" target-name="Package App">
-    <param.appname>SY_AITool</param.appname>
-    <param.authnamewatermark>DengLei</param.authnamewatermark>
-    <param.email>598798433@qq.com</param.email>
+  <configuration build-checksum="629205417" file="D:\repo\DL_Deconv\ATF\ST_ATF.prj" location="D:\repo\DL_Deconv\ATF" name="ST_ATF" target="target.mlapps" target-name="Package App">
+    <param.appname>ST_ATF</param.appname>
+    <param.authnamewatermark>denglei</param.authnamewatermark>
+    <param.email />
     <param.company>SONTU</param.company>
     <param.icon />
     <param.icons />
     <param.summary />
     <param.description />
     <param.screenshot />
-    <param.version>0.2</param.version>
+    <param.version>0.3</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
     <param.output>${PROJECT_ROOT}</param.output>
-    <param.guid>d8dd5304-e0ad-4c63-beb0-28a9011ae222</param.guid>
+    <param.guid>381092a7-2076-49b0-b7cf-165480c19ca3</param.guid>
     <unset>
+      <param.email />
       <param.icon />
       <param.icons />
       <param.summary />
@@ -33,11 +34,16 @@
     </fileset.main>
     <fileset.depfun>
       <file>${PROJECT_ROOT}\funIniParam.m</file>
+      <file>${PROJECT_ROOT}\xlcolumnletter.m</file>
+      <file>${PROJECT_ROOT}\xlswritefig.m</file>
       <file>D:\repo\DL_Deconv\deconv\Bdeconv.m</file>
       <file>D:\repo\DL_Deconv\deconv\funCTAI.m</file>
       <file>D:\repo\DL_Deconv\deconv\funCTCNI.m</file>
       <file>D:\repo\DL_Deconv\deconv\funCTMTF.m</file>
       <file>D:\repo\SIAT_IGRT\cuda\WET\Fitting\createFit.m</file>
+      <file>D:\repo\SIAT_IGRT\FormatStation\xml_io_tools\xml_read.m</file>
+      <file>D:\repo\SIAT_IGRT\FormatStation\xml_io_tools\xml_write.m</file>
+      <file>D:\repo\SIAT_IGRT\FormatStation\xml_io_tools\xmlwrite_xerces.m</file>
     </fileset.depfun>
     <fileset.resources />
     <fileset.package />
@@ -53,8 +59,8 @@
         <toolbox name="gpucoder" />
         <toolbox name="fixedpoint" />
         <toolbox name="matlabhdlcoder" />
-        <toolbox name="polyspacebugfinder" />
         <toolbox name="neuralnetwork" />
+        <toolbox name="polyspacebugfinder" />
       </toolboxes>
       <toolbox>
         <matlabcoder>
@@ -82,14 +88,14 @@
         </matlabhdlcoder>
       </toolbox>
       <toolbox>
-        <polyspacebugfinder>
-          <enabled>true</enabled>
-        </polyspacebugfinder>
-      </toolbox>
-      <toolbox>
         <neuralnetwork>
           <enabled>true</enabled>
         </neuralnetwork>
+      </toolbox>
+      <toolbox>
+        <polyspacebugfinder>
+          <enabled>true</enabled>
+        </polyspacebugfinder>
       </toolbox>
     </matlab>
     <platform>

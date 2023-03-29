@@ -1,4 +1,4 @@
-function CNI = funCTCNI(I,pixelL,normLCNI,Mode)
+function [CNI, data] = funCTCNI(I,pixelL,normLCNI,Mode)
 
 plotFlag = 0;
 
@@ -56,6 +56,13 @@ Smax = S(d2P == d2Pmax);
 Smin = S(d2P == d2Pmin);
 
 CNI = abs(Pmax-Pmin)/sqrt((Smax^2+Smin^2)/2);
+
+data.xmax = imax+5;
+data.xmin = imin+5;
+data.P = P;
+data.S = S;
+data.dP = dP;
+data.d2P = d2P;
 
 if plotFlag
     figure;

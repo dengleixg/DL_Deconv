@@ -1,4 +1,4 @@
-function [param] = funIniParam()
+function [param] = funConfig1(filename)
 
 param.config(1).a = 460;
 param.config(1).b = 650;
@@ -44,6 +44,6 @@ param.roi(4).normLMTF = 4;
 param.roi(4).tanLCNI = 10;
 param.roi(4).normLCNI = 5;
 
-xml_write('default.xml',param);
+xml_write(filename,param);
 
 end
